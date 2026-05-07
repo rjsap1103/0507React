@@ -9,13 +9,15 @@ const App = () => {
 
   const onClickEnter = () => {
     setMessage('안녕하세요');
-    setColor1('red');
-    setColor2('');
+    setBtnColor1('red');
+    // setColor1('red');
+    // setColor2('');
   };
   const onClickLeave = () => {
     setMessage('안녕히 가세요');
-    setColor2('green');
-    setColor1('');
+    setBtnColor2('green');
+    // setColor2('green');
+    // setColor1('');
   };
 
   const onClickColor1 = () => setBtnColor1('red');
