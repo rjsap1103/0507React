@@ -75,3 +75,7 @@ const TodoList = () => {
 };
 
 export default TodoList;
+
+// todolist 앞에 체크박스 만들어서 선택해서 삭제하는 기능
+// 상단에 따로 삭제 버튼 만들기
+// 가능한가?
