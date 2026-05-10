@@ -20,7 +20,7 @@ const TodoList = () => {
 
     // ★ 핵심: 기존 배열(todos)을 직접 수정(push)하지 않고,
     // 스프레드 연산자(...)를 사용해 복사한 후 새로운 항목을 추가한 새 배열을 만듭니다.
-    setTodos([...todos, newTodo]);
+    setTodos([newTodo, ...todos]);
 
     // 추가 후 입력창을 비워줍니다.
     setInputValue('');
@@ -43,7 +43,9 @@ const TodoList = () => {
     todoElements.push(
       // 리액트에서 배열로 요소를 만들 때는 반드시 고유한 'key'를 부여해야 합니다.
       <li key={todo.id} className='todo-item'>
+        <span className='todo-id'>{todo.id}</span>
         <span className='todo-text'>{todo.text}</span>
+
         <button onClick={() => deleteTodo(todo.id)} className='delete-btn'>
           삭제
         </button>
@@ -53,7 +55,7 @@ const TodoList = () => {
 
   return (
     <div className='todo-container'>
-      <h2>오늘의 할 일</h2>
+      <h2 className='todo-head'>오늘의 할 일</h2>
 
       <div className='input-group'>
         <input
@@ -75,7 +77,3 @@ const TodoList = () => {
 };
 
 export default TodoList;
-
-// todolist 앞에 체크박스 만들어서 선택해서 삭제하는 기능
-// 상단에 따로 삭제 버튼 만들기
-// 가능한가?

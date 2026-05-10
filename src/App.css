@@ -75,7 +75,7 @@
 /* <ul> 태그인 할 일 목록 컨테이너입니다. */
 
 .todo-list {
-  list-style: none; /* 목록 앞의 기본 점(bullet)을 없앱니다. */
+  list-style: none; /*목록 앞의 기본 점(bullet)을 없앱니다.*/
 
   padding: 0; /* 기본으로 들어가는 왼쪽 여백을 0으로 없앱니다. */
 
@@ -124,4 +124,12 @@
   cursor: pointer; /* 마우스 커서를 손가락으로 바꿉니다. */
 
   font-size: 0.85rem; /* 글자 크기를 조금 작게 설정합니다. */
+}
+
+.todo-head {
+  color: #333;
+}
+
+.todo-id {
+  font-size: 0.5rem;
 }
