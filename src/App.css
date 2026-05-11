@@ -1,135 +1,289 @@
-/* App의 전체적인 레이아웃을 중앙 정렬합니다. */
+/* 앱 전체의 기본 폰트와 중앙 정렬, 배경색을 설정한다. */
 
 .App {
-  text-align: center; /* 텍스트를 중앙으로 정렬합니다. */
+  text-align: center; /* 텍스트를 가운데로 정렬한다. */
 
-  padding: 40px; /* 화면 안쪽 여백을 40px 줍니다. */
+  font-family:
+    'Malgun Gothic', sans-serif; /* 기본 글꼴을 맑은 고딕으로 설정한다. */
 
-  background-color: #f8f9fa; /* 배경색을 아주 연한 회색으로 설정합니다. */
+  background-color: #e9ecef; /* 약간 어두운 회색으로 배경을 깔아 카드를 돋보이게 한다. */
 
-  min-height: 100vh; /* 앱의 최소 높이를 화면 전체 높이로 설정합니다. */
+  min-height: 100vh; /* 화면의 전체 높이를 꽉 채우도록 설정한다. */
+
+  padding: 50px 20px; /* 상하 50px, 좌우 20px의 여백을 준다. */
 }
 
-/* 할 일 목록을 감싸는 메인 박스 스타일입니다. */
+/* 최상단 프로젝트 제목의 하단 간격을 조절한다. */
 
-.todo-container {
-  background: white; /* 박스 배경색은 흰색입니다. */
+.App-header {
+  margin-bottom: 40px; /* 제목과 아래 카드 사이의 거리를 40px 벌린다. */
 
-  width: 100%; /* 박스 너비를 100%로 잡되... */
-
-  max-width: 400px; /* 최대 너비는 400px까지만 커지게 제한합니다. */
-
-  margin: 0 auto; /* 중앙에 배치하기 위해 양옆 마진을 자동으로 설정합니다. */
-
-  padding: 30px; /* 박스 안쪽 여백을 30px 줍니다. */
-
-  border-radius: 12px; /* 모서리를 12px만큼 둥글게 깎습니다. */
-
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* 박스 아래에 은은한 그림자를 넣습니다. */
+  color: #343a40; /* 텍스트를 아주 짙은 회색으로 설정한다. */
 }
 
-/* 입력창과 추가 버튼을 나란히 배치하기 위한 그룹 스타일입니다. */
+/* 미러링 기능이 담긴 카드의 전체 디자인을 설정한다. */
 
-.input-group {
-  display: flex; /* 요소들을 가로로 나란히 배치합니다. */
+.mirror-container {
+  background: #ffffff; /* 카드의 배경색을 순백색으로 설정한다. */
 
-  gap: 10px; /* 입력창과 버튼 사이의 간격을 10px 줍니다. */
+  max-width: 500px; /* 카드의 최대 너비를 500px로 고정하여 너무 길어지지 않게 한다. */
 
-  margin-bottom: 20px; /* 아래쪽 목록과의 간격을 20px 띄웁니다. */
+  margin: 0 auto; /* 좌우 마진을 auto로 설정하여 화면 정중앙에 배치한다. */
+
+  padding: 40px 30px; /* 카드 안쪽으로 상하 40px, 좌우 30px의 넉넉한 여백을 준다. */
+
+  border-radius: 16px; /* 카드의 네 모서리를 16px 둥글게 깎아 부드럽게 만든다. */
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* 카드 아래에 부드럽고 넓은 그림자를 깔아 입체감을 준다. */
+
+  text-align: left; /* 전체적인 정렬은 왼쪽으로 맞춰 텍스트를 읽기 편하게 한다. */
 }
 
-/* 텍스트를 입력하는 input 태그의 스타일입니다. */
+/* 카드 내부의 제목 스타일이다. */
 
-.todo-input {
-  flex: 1; /* 가로 공간을 남김없이 모두 차지하도록 확장합니다. */
+.mirror-container h2 {
+  margin-top: 0; /* h2 태그의 기본 상단 여백을 제거한다. */
 
-  padding: 10px 15px; /* 안쪽 여백(위아래 10px, 좌우 15px)을 줍니다. */
+  margin-bottom: 25px; /* 입력창과의 간격을 벌린다. */
 
-  border: 1px solid #ced4da; /* 1px 두께의 옅은 회색 테두리를 그립니다. */
+  text-align: center; /* 이 제목만 가운데 정렬한다. */
 
-  border-radius: 6px; /* 테두리 모서리를 6px 둥글게 만듭니다. */
-
-  font-size: 1rem; /* 글자 크기를 기본 1rem으로 설정합니다. */
-
-  outline: none; /* 클릭했을 때 생기는 기본 파란색 테두리를 없앱니다. */
+  color: #495057; /* 짙은 회색으로 설정한다. */
 }
 
-/* 할 일을 추가하는 버튼의 스타일입니다. */
+/* 사용자가 글자를 입력하는 텍스트 입력창 스타일이다. */
 
-.add-btn {
-  padding: 10px 20px; /* 위아래 10px, 좌우 20px의 여백을 줍니다. */
+.mirror-input {
+  width: 100%; /* 입력창의 너비를 부모 요소(카드)에 꽉 차게 100%로 설정한다. */
 
-  background-color: #28a745; /* 배경색을 초록색으로 설정합니다. */
+  padding: 15px; /* 입력창 내부에 15px의 넉넉한 공간을 준다. */
 
-  color: white; /* 글자색을 흰색으로 만듭니다. */
+  font-size: 1.1rem; /* 글자 크기를 살짝 키워 타이핑하기 편하게 한다. */
 
-  border: none; /* 기본 테두리를 없앱니다. */
+  border: 2px solid #ced4da; /* 입력창 테두리를 2px 두께의 연한 회색 실선으로 그린다. */
 
-  border-radius: 6px; /* 모서리를 6px 둥글게 만듭니다. */
+  border-radius: 8px; /* 입력창의 모서리도 둥글게 만든다. */
 
-  cursor: pointer; /* 마우스를 올리면 손가락 모양으로 바꿉니다. */
+  box-sizing: border-box; /* padding 값이 너비(100%)에 포함되도록 하여 레이아웃이 깨지지 않게 방어한다. */
 
-  font-weight: bold; /* 글자 굵기를 굵게 만듭니다. */
+  margin-bottom: 20px; /* 아래 요소와의 간격을 준다. */
+
+  outline: none; /* 클릭했을 때 생기는 브라우저의 기본 파란색 또는 검은색 굵은 테두리를 없앤다. */
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease; /* 테두리나 그림자가 바뀔 때 0.3초 동안 부드럽게 전환된다. */
 }
 
-/* <ul> 태그인 할 일 목록 컨테이너입니다. */
+/* 입력창을 클릭(포커스)했을 때의 강조 효과다. */
 
-.todo-list {
-  list-style: none; /*목록 앞의 기본 점(bullet)을 없앱니다.*/
+.mirror-input:focus {
+  border-color: #339af0; /* 테두리 색상을 산뜻한 파란색으로 변경한다. */
 
-  padding: 0; /* 기본으로 들어가는 왼쪽 여백을 0으로 없앱니다. */
-
-  margin: 0; /* 기본 위아래 마진을 0으로 없앱니다. */
+  box-shadow: 0 0 0 4px rgba(51, 154, 240, 0.15); /* 파란색의 옅은 그림자를 테두리 밖으로 퍼지게 하여 포커스를 강조한다. */
 }
 
-/* 각 할 일 항목(<li> 태그)의 스타일입니다. */
+/* 실시간 미러링 결과가 표시되는 회색 박스 영역이다. */
 
-.todo-item {
-  display: flex; /* 텍스트와 삭제 버튼을 가로로 나란히 배치합니다. */
+.result-area {
+  background-color: #f8f9fa; /* 아주 연한 회색을 배경으로 깐다. */
 
-  justify-content: space-between; /* 양쪽 끝으로 요소를 밀어내어 배치합니다. */
+  padding: 20px; /* 박스 내부에 20px의 여백을 준다. */
 
-  align-items: center; /* 세로 중앙을 맞춥니다. */
+  border-radius: 10px; /* 모서리를 둥글게 깎는다. */
 
-  padding: 12px 15px; /* 안쪽 여백을 설정합니다. */
+  margin-bottom: 20px; /* 아래 요소와의 간격을 둔다. */
 
-  background-color: #f8f9fa; /* 항목의 배경색을 연한 회색으로 칠합니다. */
+  min-height: 80px; /* 글자가 없어도 박스의 높이가 최소 80px은 유지되도록 고정한다. */
 
-  margin-bottom: 8px; /* 아래 항목과의 간격을 8px 둡니다. */
-
-  border-radius: 6px; /* 항목의 모서리를 둥글게 만듭니다. */
+  border-left: 5px solid #339af0; /* 박스의 왼쪽 테두리에만 두꺼운 파란색 선을 그어 디자인 포인트를 준다. */
 }
 
-/* 항목 내의 텍스트 영역 스타일입니다. */
+/* 각 영역 위에 붙는 작은 글씨의 제목(라벨) 역할이다. */
 
-.todo-text {
-  font-size: 1rem; /* 글자 크기를 1rem으로 설정합니다. */
+.label {
+  font-size: 0.85rem; /* 글자 크기를 작게 설정한다. */
 
-  color: #333; /* 글자색을 짙은 회색으로 칠합니다. */
+  color: #adb5bd; /* 연한 회색으로 시선을 덜 뺏기게 한다. */
+
+  margin: 0 0 8px 0; /* 아래로만 8px의 간격을 준다. */
+
+  font-weight: 600; /* 글자를 도톰하게 만든다. */
 }
 
-/* 할 일을 삭제하는 버튼의 스타일입니다. */
+/* 실시간으로 미러링되어 커다랗게 보이는 텍스트 스타일이다. */
 
-.delete-btn {
-  padding: 6px 12px; /* 버튼의 안쪽 크기를 작게 조절합니다. */
+.display-text {
+  margin: 0; /* 기본 여백을 지운다. */
 
-  background-color: #dc3545; /* 배경색을 빨간색으로 설정합니다. */
+  color: #212529; /* 텍스트를 거의 검은색에 가까운 짙은 색으로 설정한다. */
 
-  color: white; /* 글자색을 흰색으로 지정합니다. */
+  word-break: break-all; /* 영어 등이 길어져 박스를 뚫고 나가는 것을 방지하고 줄바꿈시킨다. */
 
-  border: none; /* 기본 테두리를 제거합니다. */
+  font-weight: 500;
 
-  border-radius: 4px; /* 버튼 모서리를 4px 둥글게 만듭니다. */
-
-  cursor: pointer; /* 마우스 커서를 손가락으로 바꿉니다. */
-
-  font-size: 0.85rem; /* 글자 크기를 조금 작게 설정합니다. */
+  line-height: 1.5; /* 줄 간격을 넓혀 읽기 편하게 한다. */
 }
 
-.todo-head {
-  color: #333;
+/* '저장하기'와 '초기화' 버튼을 나란히 배치하기 위한 컨테이너다. */
+
+.button-group {
+  display: flex; /* 내부 요소(버튼)를 가로로 배치하기 위해 Flexbox를 사용한다. */
+
+  gap: 10px; /* 두 버튼 사이의 간격을 10px로 벌려준다. */
+
+  margin-bottom: 30px; /* 아래 히스토리 영역과의 간격을 넉넉히 준다. */
 }
 
-.todo-id {
-  font-size: 0.5rem;
+/* 저장, 초기화 버튼의 공통적인 기본 형태를 정의한다. */
+
+.save-btn,
+.reset-btn {
+  flex: 1; /* 가로 공간을 두 버튼이 똑같은 비율(1:1)로 나누어 가지도록 한다. */
+
+  border: none; /* 기본 테두리를 없앤다. */
+
+  padding: 12px; /* 버튼 내부에 여백을 주어 통통하게 만든다. */
+
+  border-radius: 8px; /* 버튼 모서리를 둥글게 한다. */
+
+  cursor: pointer; /* 마우스를 올리면 손가락 모양으로 변하게 한다. */
+
+  font-weight: bold; /* 글씨를 굵게 한다. */
+
+  font-size: 1rem;
+
+  transition: all 0.2s; /* 호버 시 색상 변화를 0.2초에 걸쳐 부드럽게 한다. */
+}
+
+/* 저장하기 버튼만의 고유 색상이다. */
+
+.save-btn {
+  background-color: #339af0; /* 메인 컬러인 파란색을 적용한다. */
+
+  color: white; /* 텍스트는 흰색으로 한다. */
+}
+
+.save-btn:hover {
+  background-color: #228be6; /* 마우스를 올리면 파란색이 조금 짙어진다. */
+}
+
+/* 초기화 버튼만의 고유 색상이다. */
+
+.reset-btn {
+  background-color: #e9ecef; /* 눈에 덜 띄는 옅은 회색으로 칠한다. */
+
+  color: #495057; /* 텍스트는 짙은 회색으로 한다. */
+}
+
+.reset-btn:hover {
+  background-color: #dee2e6; /* 마우스를 올리면 조금 더 진한 회색이 된다. */
+}
+
+/* 저장된 텍스트들이 나열되는 기록장 영역이다. */
+
+.history-area {
+  border-top: 1px dashed #ced4da; /* 영역 상단에 회색 점선을 그어 위의 영역과 분리감을 준다. */
+
+  padding-top: 20px; /* 점선 아래로 여백을 준다. */
+}
+
+/* 기록장 제목과 전체 삭제 버튼을 나란히 두는 헤더 영역이다. */
+
+.history-header {
+  display: flex; /* 양 끝 배치 가능하도록 Flexbox를 켠다. */
+
+  justify-content: space-between; /* 제목은 왼쪽 끝, 삭제 버튼은 오른쪽 끝으로 밀어낸다. */
+
+  align-items: center; /* 세로 중앙을 맞춘다. */
+
+  margin-bottom: 15px; /* 아래 목록과의 간격을 준다. */
+}
+
+/* 기록장 영역의 작은 라벨의 하단 여백을 없앤다 (레이아웃 조정을 위함). */
+
+.history-header .label {
+  margin-bottom: 0;
+}
+
+/* 전체 기록을 지우는 작은 버튼의 스타일이다. */
+
+.clear-history-btn {
+  background: none; /* 배경색을 투명하게 하여 글자만 남긴다. */
+
+  border: none; /* 테두리를 지운다. */
+
+  color: #fa5252; /* 경고를 뜻하는 빨간색 글씨로 설정한다. */
+
+  font-size: 0.85rem;
+
+  cursor: pointer; /* 클릭 가능함을 표시한다. */
+
+  padding: 0;
+}
+
+.clear-history-btn:hover {
+  text-decoration: underline; /* 마우스를 올리면 글자에 밑줄이 생기게 하여 직관성을 높인다. */
+}
+
+/* 기록이 담기는 ul 태그의 속성을 초기화한다. */
+
+.history-list {
+  list-style: none; /* 기본 점(bullet)을 없앤다. */
+
+  padding: 0;
+
+  margin: 0;
+
+  display: flex; /* 항목들이 세로로 쌓이도록 제어한다. */
+
+  flex-direction: column;
+
+  gap: 10px; /* 각 줄 사이의 간격을 10px 둔다. */
+}
+
+/* 개별 기록 항목(li)의 디자인이다. */
+
+.history-item {
+  background-color: #f8f9fa; /* 항목의 배경을 연한 회색으로 깔아준다. */
+
+  padding: 12px 15px; /* 안쪽 여백을 준다. */
+
+  border-radius: 8px; /* 모서리를 둥글게 한다. */
+
+  font-size: 0.95rem;
+
+  color: #343a40; /* 텍스트를 짙은 회색으로 설정한다. */
+
+  display: flex; /* 핀 아이콘과 텍스트를 가로로 정렬한다. */
+
+  align-items: flex-start; /* 텍스트가 여러 줄이 되어도 아이콘은 맨 위에 머물도록 상단 정렬한다. */
+
+  word-break: break-all;
+
+  animation: slideDown 0.3s ease-out; /* 항목이 추가될 때 부드럽게 내려오는 애니메이션을 건다. */
+}
+
+/* 앞에 붙는 핀 아이콘(이모지)의 스타일이다. */
+
+.bullet {
+  margin-right: 10px; /* 텍스트와 이모지 사이의 간격을 띄운다. */
+
+  font-size: 0.9rem;
+}
+
+/* 항목이 생겨날 때 실행되는 애니메이션이다. */
+
+@keyframes slideDown {
+  from {
+    opacity: 0; /* 완전히 투명한 상태에서 시작한다. */
+
+    transform: translateY(-10px); /* 원래 위치보다 10px 위에서 시작한다. */
+  }
+
+  to {
+    opacity: 1; /* 불투명해지면서 화면에 완전히 나타난다. */
+
+    transform: translateY(0); /* 원래 위치로 내려와 자리를 잡는다. */
+  }
 }

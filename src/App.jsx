@@ -1,12 +1,7 @@
-import Todolist from './Todolist';
+import InputMirror from './InputMirror';
 import './App.css';
-
 const App = () => {
-  return (
-    <div>
-      <Todolist />
-    </div>
-  );
+  return <InputMirror />;
 };
 
 export default App;
