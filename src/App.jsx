@@ -1,7 +1,8 @@
-import InputMirror from './InputMirror';
+import Accordian from './Accordion';
 import './App.css';
+
 const App = () => {
-  return <InputMirror />;
+  return <Accordian />;
 };
 
 export default App;
